@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from tabulate import tabulate
+import math
 
 # Параметр уравнений
 a = 2
@@ -9,7 +10,7 @@ a = 2
 x2 = np.linspace(0, 4, 400)
 
 # Вычисление значений x1_1 и x1_2 для заданного уравнения
-x1_1 = np.sqrt((x2 - x2**2 + a) / (2 * a))
+x1_1 = np.sqrt((x2 - np.power(x2, 2) + a) / (2 * a))
 x1_2 = np.sqrt(x2 + a) - 1
 
 # Создание графиков для визуализации уравнений
@@ -27,7 +28,7 @@ x1 = np.linspace(0, 2, 400)
 x2 = np.linspace(0, 2, 400)
 
 # Вычисление значений для функций fi1 и fi2
-fi1_i = 0.5 * (x2 - x2**2 + a)**0.5
+fi1_i = 0.5 * np.power((x2 - np.power(x2, 2) + a), 0.5)
 fi2_i = np.sqrt(x2 + a) - 1
 
 # Построение графика функций fi1 и fi2
@@ -41,7 +42,7 @@ plt.show()
 
 # Определение функции fi1
 def fi1(x1, x2):
-    return (x2 - x2**2 + a) / (2 * a)
+    return (x2 - np.power(x2, 2) + a) / (2 * a)
 
 # Определение функции fi2
 def fi2(x1, x2):
@@ -67,7 +68,7 @@ def prost_iter(q, x0_1, x0_2, eps):
 
 # Определение функции F1
 def F1(x1, x2):
-    return 2 * x1**2 - x2 + x2**2 - a
+    return 2 * np.power(x1, 2) - x2 + np.power(x2, 2) - a
 
 # Определение функции F2
 def F2(x1, x2):
